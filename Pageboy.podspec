@@ -16,12 +16,12 @@ Pod::Spec.new do |s|
   					A page view controller that provides simplified data source management, enhanced delegation and other useful features.
                    DESC
 
-  s.homepage          = "https://github.com/uias/Pageboy"
+  s.homepage          = "https://github.com/StreamCo/iOS-Pageboy-Fork"
   s.license           = "MIT"
   s.author            = { "Merrick Sapsford" => "merrick@sapsford.tech" }
   s.social_media_url  = "https://twitter.com/MerrickSapsford"
 
-  s.source       = { :git => "https://github.com/uias/Pageboy.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/StreamCo/iOS-Pageboy-Fork.git", :tag => s.version.to_s }
   s.source_files = "Sources/Pageboy/**/*.{h,m,swift}"
 
 end
