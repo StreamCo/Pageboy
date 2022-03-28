@@ -142,6 +142,11 @@ open class PageboyViewController: UIViewController {
             reloadCurrentPageSoftly()
         }
     }
+
+    /// Whether the ability to scroll past the endIndex is possible.
+    /// Default is `false`
+    open var isOverscrollEnabled: Bool = false
+
     /// Whether the page view controller is currently animating a scroll between pages.
     private(set) internal var isScrollingAnimated = false {
         didSet {

@@ -106,7 +106,7 @@ internal extension PageboyViewController {
         let maxPagePosition = CGFloat((viewControllerCount ?? 1) - 1)
         let isOverscrolling = pagePosition < 0.0 || pagePosition > maxPagePosition
         
-        guard isInfiniteScrollEnabled && isOverscrolling else {
+        guard isInfiniteScrollEnabled && isOverscrolling, !isOverscrollEnabled else {
             return false
         }
         return true
