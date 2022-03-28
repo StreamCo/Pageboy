@@ -102,7 +102,7 @@ extension PageboyViewController: UIScrollViewDelegate {
 
         // update page position for infinite overscroll if required
         let pagePosition: CGFloat
-        if let infiniteAdjustedPosition = adjustedPagePositionForInfiniteOverscroll(from: newPosition) {
+        if let infiniteAdjustedPosition = adjustedPagePositionForInfiniteOverscroll(from: newPosition), !isOverscrollEnabled {
             pagePosition = infiniteAdjustedPosition
         } else {
             pagePosition = newPosition
