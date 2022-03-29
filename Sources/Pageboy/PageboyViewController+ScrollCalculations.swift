@@ -127,11 +127,25 @@ internal extension PageboyViewController {
         // Handle scenario where user continues to pan past a single page range.
         let isPagingForward = pagePosition > previousPagePosition ?? 0.0
         if scrollView.isTracking {
-            if isPagingForward && pagePosition >= CGFloat(currentIndex + 1) {
-                updateCurrentPageIndexIfNeeded(currentIndex + 1)
+            if isPagingForward && floor(pagePosition) >= CGFloat(currentIndex + 1) {
+                var newIndex = currentIndex + 1
+
+                //Fixes the issue where if the user is scrolling forwards past the end index,
+                //it should reset the index to 0 so the next page will be correct.
+                if isInfiniteScrollEnabled && newIndex == (viewControllerCount ?? 0) {
+                   newIndex = 0
+                }
+
+                updateCurrentPageIndexIfNeeded(newIndex)
                 return true
             } else if !isPagingForward && pagePosition <= CGFloat(currentIndex - 1) {
-                updateCurrentPageIndexIfNeeded(currentIndex - 1)
+                var newIndex = currentIndex - 1
+
+               if newIndex < 0 && isInfiniteScrollEnabled {
+                  newIndex = (viewControllerCount ?? 1) - 1
+               }
+
+                updateCurrentPageIndexIfNeeded(newIndex)
                 return true
             }
         }
