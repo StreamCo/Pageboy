@@ -12,6 +12,11 @@ import UIKit
 extension PageboyViewController: PageboyAutoScrollerHandler {
     
     func autoScroller(didRequestAutoScroll autoScroller: PageboyAutoScroller, animated: Bool) {
+        guard let dataSource = self.dataSource,
+              dataSource.numberOfViewControllers(in: self) > 1 else {
+           return
+        }
+
         scrollToPage(.next, animated: animated)
     }
 }
